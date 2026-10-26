@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+            padding: 35px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px #00000012;
+        }
+
+        h1 { color: #173b69; }
+
+        textarea {
+            width: 100%;
+            min-height: 230px;
+            box-sizing: border-box;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 15px;
+            background: #173b69;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 13px 22px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover { background: #24558f; }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-left: 4px solid #24558f;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            line-height: 1.7;
+        }
+
+        .note { color: #64748b; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Legal Document Analyzer</h1>
+        <p>Understand important details in your legal document with AI.</p>
+
+        <form method="POST">
+            <label for="document"><strong>Enter your legal document</strong></label>
+            <br><br>
+
+            <textarea id="document" name="document"
+                placeholder="Paste a sample employment or rental agreement here..."
+                required></textarea>
+
+            <button type="submit">Analyze Document</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Analysis Results</h2>
+            {{ result }}
+        </div>
+        {% endif %}
+
+        <p class="note">
+            Educational tool only. AI results may be inaccurate.
+            Do not paste confidential or sensitive legal documents.
+        </p>
+    </div>
+</body>
+</html>
